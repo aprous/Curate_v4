@@ -3,9 +3,10 @@
 # Table name: bookmarks
 #
 #  id         :integer          not null, primary key
+#  listing    :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  listing_id   :integer
+#  listing_id :integer
 #  user_id    :integer
 #
 class Bookmark < ApplicationRecord

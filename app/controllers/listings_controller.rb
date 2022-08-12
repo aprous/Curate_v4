@@ -1,12 +1,12 @@
 class ListingsController < ApplicationController
   def add_user_bookmark
     b = Bookmark.new
-    b.listing_id = params.fetch("listing_id") 
+    b.listing_id = params.fetch("listing_id")
     b.save
 
-    redirect_to "/"
-  end 
-  
+    redirect_to "/bookmarks", :notice => "Bookmarked listing"
+  end
+
   def index
     matching_listings = Listing.all
 
@@ -59,7 +59,7 @@ class ListingsController < ApplicationController
 
     if the_listing.valid?
       the_listing.save
-      redirect_to("/listings/#{the_listing.id}", { :notice => "Listing updated successfully."} )
+      redirect_to("/listings/#{the_listing.id}", { :notice => "Listing updated successfully." })
     else
       redirect_to("/listings/#{the_listing.id}", { :alert => the_listing.errors.full_messages.to_sentence })
     end
@@ -71,6 +71,6 @@ class ListingsController < ApplicationController
 
     the_listing.destroy
 
-    redirect_to("/listings", { :notice => "Listing deleted successfully."} )
+    redirect_to("/listings", { :notice => "Listing deleted successfully." })
   end
 end
