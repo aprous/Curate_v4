@@ -1,4 +1,12 @@
 class ListingsController < ApplicationController
+  def add_user_bookmark
+    b = Bookmark.new
+    b.listing_id = params.fetch("listing_id") 
+    b.save
+
+    redirect_to "/"
+  end 
+  
   def index
     matching_listings = Listing.all
 
