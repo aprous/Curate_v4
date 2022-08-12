@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Message #<%= @the_message.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/messages">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_message/<%= @the_message.id %>">
+          Delete message
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Body
+      </dt>
+      <dd>
+        <%= @the_message.body %>
+      </dd>
+
+      <dt>
+        From user
+      </dt>
+      <dd>
+        <%= @the_message.from_user_id %>
+      </dd>
+
+      <dt>
+        To user
+      </dt>
+      <dd>
+        <%= @the_message.to_user_id %>
+      </dd>
+
+      <dt>
+        Listing
+      </dt>
+      <dd>
+        <%= @the_message.listing_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_message.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_message.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit message
+    </h2>
+
+    <form action="/modify_message/<%= @the_message.id %>"  method="post" >
+      <div>
+        <label for="body_box">
+          Body
+        </label>
+
+        <textarea id="body_box" name="query_body"><%= @the_message.body %></textarea>
+      </div>
+
+      <div>
+        <label for="from_user_id_box">
+          From user
+        </label>
+
+        <input type="text" id="from_user_id_box" name="query_from_user_id" value="<%= @the_message.from_user_id %>">
+      </div>
+
+      <div>
+        <label for="to_user_id_box">
+          To user
+        </label>
+
+        <input type="text" id="to_user_id_box" name="query_to_user_id" value="<%= @the_message.to_user_id %>">
+      </div>
+
+      <div>
+        <label for="listing_id_box">
+          Listing
+        </label>
+
+        <input type="text" id="listing_id_box" name="query_listing_id" value="<%= @the_message.listing_id %>">
+      </div>
+
+      <button>
+        Update message
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
