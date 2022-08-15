@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get("/add_bookmark", { :controller => "listings", :action => "add_user_bookmark" })
 
   # CREATE
-  post("/insert_bookmark", { :controller => "bookmarks", :action => "create" })
+  get("/insert_bookmark", { :controller => "bookmarks", :action => "create" })
           
   # READ
   get("/bookmarks", { :controller => "bookmarks", :action => "index" })
@@ -95,6 +95,7 @@ get("/", { :controller => "listings", :action => "index" })
   post("/insert_listing", { :controller => "listings", :action => "create" })
           
   # READ
+  get("/insert_listing", { :controller => "listings", :action => "index" })
   get("/listings", { :controller => "listings", :action => "index" })
   
   get("/listings/:path_id", { :controller => "listings", :action => "show" })
