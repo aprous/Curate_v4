@@ -37,6 +37,13 @@ class UserAuthenticationController < ApplicationController
 
   def sign_up_form
     render({ :template => "user_authentication/sign_up.html.erb" })
+    
+    session[:user_id] = user.id
+    if user.buyer == true
+      redirect_to("/buyer_listings", { :notice => "Signed up successfully." })
+    else 
+      redirect_to("/", { :notice => "Signed up successfully." })
+    end 
   end
 
   def create
