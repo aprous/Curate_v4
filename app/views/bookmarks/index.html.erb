@@ -44,15 +44,15 @@
     <table border="1">
       <tr>
         <th>
-          ID
+          Bookmark ID
         </th>
 
         <th>
-          User
+          User ID
         </th>
 
         <th>
-          Listing
+          Listing ID
         </th>
 
         <th>
@@ -67,7 +67,12 @@
         </th>
       </tr>
 
+
+
+
       <% @list_of_bookmarks.each do |a_bookmark| %>
+      <%if a_bookmark.user_id == session[:user_id] %>
+
       <tr>
         <td>
           <%= a_bookmark.id %>
@@ -94,6 +99,8 @@
           </a>
         </td>
       </tr>
+      <% else %> 
+      <% end %>
       <% end %>
     </table>
   </div>

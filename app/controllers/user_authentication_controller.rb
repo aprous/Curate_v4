@@ -18,8 +18,11 @@ class UserAuthenticationController < ApplicationController
         redirect_to("/user_sign_in", { :alert => "Incorrect password." })
       else
         session[:user_id] = user.id
-      
+      if user.buyer == true
+        redirect_to("/buyer_listings", { :notice => "Signed in successfully." })
+      else 
         redirect_to("/", { :notice => "Signed in successfully." })
+      end 
       end
     else
       redirect_to("/user_sign_in", { :alert => "No user with that email address." })

@@ -2,6 +2,7 @@ class ListingsController < ApplicationController
   def add_user_bookmark
     b = Bookmark.new
     b.listing_id = params.fetch("listing_id")
+    b.user_id = session.fetch(:user_id)
     b.save
 
     redirect_to "/bookmarks", :notice => "Bookmarked listing"
@@ -14,6 +15,15 @@ class ListingsController < ApplicationController
 
     render({ :template => "listings/index.html.erb" })
   end
+
+  def buyer_index
+    matching_listings = Listing.all
+
+    @list_of_listings = matching_listings.order({ :created_at => :desc })
+
+    render({ :template => "listings/buyer_index.html.erb" })
+
+  end 
 
   def show
     the_id = params.fetch("path_id")

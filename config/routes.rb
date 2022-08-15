@@ -97,6 +97,7 @@ get("/", { :controller => "listings", :action => "index" })
   # READ
   get("/insert_listing", { :controller => "listings", :action => "index" })
   get("/listings", { :controller => "listings", :action => "index" })
+  get("/buyer_listings", { :controller => "listings", :action => "buyer_index" })
   
   get("/listings/:path_id", { :controller => "listings", :action => "show" })
   

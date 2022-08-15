@@ -53,4 +53,5 @@ class BookmarksController < ApplicationController
 
     redirect_to("/bookmarks", { :notice => "Bookmark deleted successfully."} )
   end
+
 end

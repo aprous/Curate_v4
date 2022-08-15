@@ -18,12 +18,20 @@
   <body>
     
     <ul>
+    <% if @current_user == nil %>
+          <a href="/user_sign_in">Sign In</a>
+      <%else%>
+     <%if @current_user.buyer == true %>
     <li>
-      <a href="/listings">Buy Now</a>
+      <a href="/buyer_listings">Buy Now</a>
     </li>
+      <% else %>
     <li>
       <a href="/insert_listing">Sell Now</a>
     </li>
+          <% end %>
+          <% end %> 
+
     <li>
       <a href="/bookmarks">Bookmarks</a>
     </li>
