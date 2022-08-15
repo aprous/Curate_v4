@@ -12,7 +12,7 @@
 #  updated_at  :datetime         not null
 #  buyer_id    :integer
 #  category_id :integer
-#  seller_id   :string
+#  seller_id   :integer
 #
 class Listing < ApplicationRecord
 end
