@@ -13,12 +13,11 @@ namespace :slurp do
     d.price = row["Price"]
     d.location = row["Location"]
     d.name = row["Name"]
+    d.seller_id = User.all.sample.id
   
     
     d.save
-    
-  
-     
+       
     end 
     
   end

@@ -41,10 +41,9 @@ class ListingsController < ApplicationController
     the_listing.name = params.fetch("query_name")
     the_listing.description = params.fetch("query_description")
     the_listing.price = params.fetch("query_price")
-    the_listing.location = params.fetch("query_location")
     the_listing.seller_id = params.fetch("query_seller_id")
-    the_listing.buyer_id = params.fetch("query_buyer_id")
-    the_listing.category_id = params.fetch("query_category_id")
+
+
 
     if the_listing.valid?
       the_listing.save

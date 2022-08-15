@@ -55,33 +55,16 @@ Search listings
           Price
         </label>
 
-        <input type="text" id="price_box" name="query_price">
+        $<input type="decimal" id="price_box" name="query_price">
       </div>
 
-      <div>
-        <label for="location_box">
-          Location
-        </label>
-
-        <input type="text" id="location_box" name="query_location">
-      </div>
 
       <div>
         <label for="seller_id_box">
           Seller
         </label>
 
-        <input type="text" id="seller_id_box" name="query_seller_id">
-      </div>
-
-
-
-      <div>
-        <label for="category_id_box">
-          Category
-        </label>
-
-        <input type="text" id="category_id_box" name="query_category_id">
+        <input type="hidden" id="seller_id_box" name="query_seller_id" value= <%= session.fetch(:user_id) %>
       </div>
 
       <button>
@@ -160,11 +143,13 @@ Search listings
         </td>
 
         <td>
-          <%= a_listing.price %>
+         <%= a_listing.price.to_s %>
         </td>
 
         <td>
-          <%= a_listing.seller_id %>
+          <% seller = a_listing.seller_id %>
+          <%= seller_name = User.where({ :id => seller }).at(0).full_name  %>
+          
         </td>
 
         <td>
