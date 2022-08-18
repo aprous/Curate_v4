@@ -14,6 +14,7 @@ namespace :slurp do
     d.location = row["Location"]
     d.name = row["Name"]
     d.seller_id = User.all.sample.id
+    d.listing_id = Listing.all.sample.id
   
     
     d.save

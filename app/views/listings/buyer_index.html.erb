@@ -109,7 +109,7 @@ Search listings
 
         <%# if current_user_bookmarks.count !=0  %>
           <form action="/add_bookmark">
-          <input type="hidden" name="listing_id" value="<%= session.fetch(:listing_id) %>">
+          <input type="hidden" name="listing_id" value="<%=a_listing.id%>">
               <button>I dig it!</button>
           </form>
           <%# else %>

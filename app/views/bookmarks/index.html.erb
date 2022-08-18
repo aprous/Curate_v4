@@ -56,6 +56,14 @@
         </th>
 
         <th>
+          Seller Name
+        </th>
+        
+        <th>
+          Email to Buy!
+        </th>
+
+        <th>
           Created at
         </th>
 
@@ -84,6 +92,18 @@
 
         <td>
           <%= a_bookmark.listing_id %>
+        </td>
+
+        <td>
+            <% listing = a_bookmark.listing_id %>
+          <% listing_id = Listing.where({ :id => listing }).at(0).seller_id  %>
+          <%= user_id = User.where({ :id => listing_id }).at(0).full_name  %>
+        </td>
+
+        <td>
+            <% listing = a_bookmark.listing_id %>
+          <% listing_id = Listing.where({ :id => listing }).at(0).seller_id  %>
+          <%= user_id = User.where({ :id => listing_id }).at(0).email  %>
         </td>
 
         <td>

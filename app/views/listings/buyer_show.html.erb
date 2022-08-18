@@ -104,8 +104,6 @@
 
 <div>
   <div>
-  <%user = User.where( :id => session[:user_id] ).at(0)%>
-  <%if user.seller == true%>
     <h2>
       Edit listing
     </h2>
@@ -181,6 +179,5 @@
     </form>
   </div>
 </div>
-<%end%>
 
 <hr>
